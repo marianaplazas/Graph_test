@@ -1,0 +1,7 @@
+Manizales,Pereira,30
+Manizales,Cartago,50
+Pereira,Armenia,30
+Armenia,Cali,80
+Pereira,Cartago,10
+Cartago,Cali,40
+Manizales,Cali
