@@ -1,26 +1,26 @@
 #!/usr/bin/python3
+import pdb
 
-def rutas(inicio, dest, matrix):
+def rutas(inicio, dest, matrix, ruta, guardar_l):
 
-	rutas = []
 	tmp = []
 
 	for i in range(len(matrix)):
 		if (inicio in matrix[i] and matrix[i].index(inicio) == 0):
 			tmp.append(matrix[i])
-	if (tmp[0][1] != dest):
-		construir_ruta(inicio, dest, tmp, matrix)
 
-def construir_ruta(inicio, dest, tmp, matrix):
-	ruta = []
-
-	if (inicio != dest):
-		print(tmp)
-		inicio = tmp[0][1]
+	for i in range(len(tmp)):
+		inicio = tmp[i][1]
 		ruta.append(inicio)
-		tmp= rutas(inicio, dest, matrix)
-	return(ruta)
-
+		result = rutas(inicio, dest, matrix, ruta, guardar_l)
+		if (result[-1] == dest):
+			guardar_l.append(result[:])
+		ruta.pop()
+	if (len(ruta) == 1):
+		return guardar_l
+	return (ruta)
+	
+	
 with open ('input.txt', 'r') as f:
 	lists = f.read().splitlines()
 ruta_f = lists.pop()
@@ -29,5 +29,5 @@ matrix = []
 for i in range(len(lists)):
 	matrix.append(lists[i].split(","))
 
-rutas(ruta_f[0], ruta_f[1], matrix)
+print(rutas(ruta_f[0], ruta_f[1], matrix, [ruta_f[0]], []))
 
