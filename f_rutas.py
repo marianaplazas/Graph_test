@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import pdb
 
 def rutas(inicio, dest, matrix, ruta, guardar_l, weight):
 
@@ -43,3 +42,4 @@ for i in range(len(lista_rutas)):
 	if mini in lista_rutas[i]:
 		lista_rutas[i].pop()
 		print(lista_rutas[i])
+		
